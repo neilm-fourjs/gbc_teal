@@ -5,11 +5,6 @@
       "uses": ["platform/desktop"]
     },
     {
-      "name": "hivis",
-      "title": "NJM High Visibility",
-      "uses": ["platform/desktop", "colors/hivis"]
-    },
-    {
       "name": "default_mobile",
       "title": "Default",
       "uses": ["platform/mobile"]

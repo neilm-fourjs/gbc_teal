@@ -4,6 +4,10 @@
 	overflow: auto;
 }
 
+.vanished {
+	width: 1px; 
+}
+
 .gbc_GroupWidgetContent > .gbc_GroupTitleWidget:not(.empty) {
 	padding: 0px;
 }
