@@ -21,6 +21,6 @@ $ make
 ```
 
 ## Screenshots
-![ss1](https://github.com/neilm-fourjs/gbc_njm/raw/master/Screenshots/SS-1.png "SS1")
+![ss1](https://github.com/neilm-fourjs/gbc_teal/raw/master/Screenshots/SS-1.png "SS1")
 
 
