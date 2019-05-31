@@ -22,6 +22,7 @@ $ make
 
 ## Screenshots
 ![ss1](https://github.com/neilm-fourjs/gbc_teal/raw/master/Screenshots/SS-1.png "SS1")
+![ss2](https://github.com/neilm-fourjs/gbc_teal/raw/master/Screenshots/SS-2.png "SS2")
 
 
 ## GBC Customizations - CSS
@@ -93,17 +94,7 @@ The default table headers were a little bland, so I re-styled them.
 ### Header text / logo ( MyHeaderBarWidget )
 The header title and the logo were done using the method outlined in the GAS manual.
 The header MyHeaderBarWidget.tpl.html file was expended to have a table to align the logo/title/app counter
-
-
-To make the image work I added these 2 lines of javascript to the MyHeaderBarWidget.js file
-```javascript
-          // find the img tag with a class of .njm-logo-top
-          this.img = this.getElement().querySelector(".njm-logo-top");
-          // replace the source for the img with our uri path and the image name
-          this.img.src = context.bootstrapInfo.gbcPath+"/img/njm_demo_logo_256.png";
-```
-
-The image is in resources/img folder in the njm_cust folder and gets moved to the dist folder structure by grunt.
+The image is in resources/img folder 
 
 ### Footer to be at bottom of page rather than bottom of window ( MyFormWidget )
 
