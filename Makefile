@@ -22,3 +22,12 @@ subdirs: $(dirs)
 
 clean:
 	rm $(DISTBIN)/gbc*.zip
+
+deploy: distbin
+	cd distbin && gasadmin gbc --deploy $(dirs).zip
+
+undeploy:
+	gasadmin gbc --undeploy $(dirs)
+
+redeploy: undeploy deploy
+
