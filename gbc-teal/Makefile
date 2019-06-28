@@ -30,3 +30,5 @@ $(TARGET): $(GBCBASE)/gbc-$(PACKVER)/dist/$(CUSTOMNAME)
 dev:
 	cd $(GBCBASE)/gbc-$(PACKVER) && grunt --customization=customization/$(CUSTOMNAME) dev
 
+deploy:
+	cd ../distbin && ./deploy_gbc.sh
