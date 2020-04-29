@@ -62,8 +62,7 @@ if [ ! -d $BLDDIR ]; then
 		exit 1
 	fi
 	unzip $SRC
-	rm -f $SAVDIR/gbc-current
-	ln -s gbc-$VER $SAVDIR/gbc-current
+	ln -s gbc-$VER gbc-current
 fi
 
 cd gbc-current
