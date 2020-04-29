@@ -46,6 +46,9 @@ echo "VER=$VER BLD=$BLD"
 
 SRC="$GBCPROJECTDIR/fjs-$GBC-$VER-$BLD-project.zip"
 
+SAVDIR=$(pwd)
+cd ..
+
 if [ -d gbc-current ]; then
 	BLDDIR=gbc-current
 else
@@ -59,8 +62,8 @@ if [ ! -d $BLDDIR ]; then
 		exit 1
 	fi
 	unzip $SRC
-	rm -f gbc-current
-	ln -s gbc-$VER gbc-current
+	rm -f $SAVDIR/gbc-current
+	ln -s gbc-$VER $SAVDIR/gbc-current
 fi
 
 cd gbc-current
@@ -71,3 +74,7 @@ npm install bower
 npm audit fix
 grunt deps
 
+cd $SAVDIR
+if [ ! -d gbc-current ]; then
+	ln -s ../gbc-current ./gbc-current
+fi
