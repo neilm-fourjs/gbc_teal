@@ -1,12 +1,13 @@
+#!/bin/bash
 
 # This script attempts to setup a GBC dev environment
 #
 # Example:
-# ./gbc-setup.sh 1.00.41 201711301722
+# ./gbc-setup400.sh 
 
 set_default_build()
 {
-LAST=$(ls -1 $GBCPROJECTDIR/fjs-${GBC}*-project.zip | tail -1 )
+LAST=$(ls -1 $GBCPROJECTDIR/fjs-${GBC}-${GBCV}.*-project.zip | tail -1 )
 VER=$(echo $LAST | cut -d'-' -f3)
 BLD=$(echo $LAST | cut -d'-' -f4)
 }
@@ -16,6 +17,18 @@ BASE=$(pwd)
 GBC=gbc
 VER=$1
 BLD=$2
+NVMVER=12.18.4
+
+if [ -z "$GENVER" ]; then
+	echo "GENVER is not set!"
+	exit 1
+fi
+
+if [ "$GENVER" = "400" ]; then
+	GBCV=4
+else
+	GBCV=1
+fi
 
 if [ -z $GBCPROJECTDIR ]; then
 	echo "WARNING: GBCPROJECTDIR is not set to location of GBC project zip file(s)"
@@ -49,10 +62,8 @@ SRC="$GBCPROJECTDIR/fjs-$GBC-$VER-$BLD-project.zip"
 SAVDIR=$(pwd)
 cd ..
 
-if [ -d gbc-current ]; then
-	BLDDIR=gbc-current
-else
-	BLDDIR=gbc-$VER
+if [ -d gbc-current$GENVER ]; then
+	BLDDIR=gbc-current$GENVER
 fi
 
 if [ ! -d $BLDDIR ]; then
@@ -62,18 +73,16 @@ if [ ! -d $BLDDIR ]; then
 		exit 1
 	fi
 	unzip $SRC
-	ln -s gbc-$VER gbc-current
+	ln -s gbc-$VER gbc-current$GENVER
 fi
-
-cd gbc-current
-
-npm install
-npm install grunt-cli
-npm install bower
-npm audit fix
-grunt deps
 
 cd $SAVDIR
-if [ ! -d gbc-current ]; then
-	ln -s ../gbc-current ./gbc-current
+if [ ! -d gbc-current$GENVER ]; then
+	ln -s ../gbc-current$GENVER ./gbc-current$GENVER
 fi
+
+cd gbc-current$GENVER
+
+source ~/.nvm/nvm.sh
+nvm install $NVMVER
+
