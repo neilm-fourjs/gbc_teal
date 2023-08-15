@@ -1,5 +1,5 @@
 
-GBCBASE=..
+GBCBASE=../..
 
 include ../makefile.inc
 

@@ -1,6 +1,6 @@
 
 export PACKVER=current$(GENVER)
-export GBCPROJECT=gbc-$(PACKVER)
+export GBCPROJECT=../gbc-$(PACKVER)
 export DISTBIN=$(PWD)/../distbin
 export CWD=$(PWD)
 export BUILDCMD=gbc build

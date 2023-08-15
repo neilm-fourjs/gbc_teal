@@ -10,7 +10,8 @@
 
 "use strict";
 
-modulum('MyApplicationHostMenuWidget', ['ApplicationHostMenuWidget', 'WidgetFactory'],
+//modulum('MyApplicationHostMenuWidget', ['ApplicationHostMenuWidget', 'WidgetFactory'],
+modulum('MyApplicationHostMenuWidget', ['WidgetFactory'],
   /**
    * @param {gbc} context
    * @param {classes} cls
